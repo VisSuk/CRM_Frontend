@@ -1,5 +1,5 @@
 import React from "react"
-import "./Taskmenu.css"
+import "./TaskMenu.css"
 
 function TaskMenu({ onOpen, onEdit, onDelete, isAdmin }) {
   return (
