@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
-import "./taskcard.css"
+import "./Taskcard.css"
 import TaskMenu from "../users/components/TaskMenu"
 import { getFormattedDate } from "../functions/formattedDate"
 
