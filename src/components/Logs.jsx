@@ -1,5 +1,5 @@
 import React from "react"
-import "./logs.css"
+import "./Logs.css"
 
 function Logs({ logs }) {
   return (
