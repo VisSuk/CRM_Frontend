@@ -1,0 +1,27 @@
+.logs-table-wrapper {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  overflow-x: auto;
+}
+
+.logs-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.logs-table th {
+  text-align: left;
+  padding: 12px;
+  background: #f3f4f6;
+  font-weight: 600;
+}
+
+.logs-table td {
+  padding: 12px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.logs-table tr:hover {
+  background: #f9fafb;
+}

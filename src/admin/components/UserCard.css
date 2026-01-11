@@ -1,0 +1,40 @@
+.user-card {
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.user-card:hover {
+  transform: translateY(-3px);
+}
+
+/* Two-column layout */
+.user-card-grid {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 15px;
+  align-items: center;
+}
+
+/* Profile picture */
+.user-avatar img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* User text */
+.user-info h4 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.user-info p {
+  margin: 4px 0 0;
+  color: gray;
+  font-size: 13px;
+}
