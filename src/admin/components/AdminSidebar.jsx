@@ -1,11 +1,13 @@
 import React from "react"
 import '../../css/Sidebar.css'
 import '../../css/commonStyles.css'
-import { NavLink } from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBolt, faChartPie, faListCheck, faRightFromBracket, faSuitcase, faUsers } from "@fortawesome/free-solid-svg-icons"
 
 function AdminSidebar() {
+
+  const navigate = useNavigate()
 
   const handleLogout = () => {
     sessionStorage.clear()

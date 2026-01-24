@@ -1,12 +1,14 @@
 import { faBolt, faChartPie, faRightFromBracket, faUsers } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import React, { useEffect, useState } from "react"
-import { NavLink } from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom"
 
 import "../../css/Sidebar.css"
 import '../../css/commonStyles.css'
 
 function UserSidebar() {
+
+  const navigate = useNavigate()
 
   const [userDetails, setUserDetails] = useState({
     username: "",
