@@ -81,7 +81,7 @@ function UserTasks() {
                       <tbody>
                         { isLoading?
                         <tr>
-                            <td colSpan="4" className="empty-state">
+                            <td colSpan="4" className="load-state">
                               <h3>Fetching Tasks...</h3>
                             </td>
                         </tr>
