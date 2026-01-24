@@ -19,11 +19,15 @@ function UserTasks() {
 
   const [viewModal, setViewModal] = useState(null)
 
+  const [isLoading, setIsLoading] = useState(false)
+
   const getUserTasks = async () => {
+    setIsLoading(true)
     const reqHeader = { "Authorization": `Bearer ${token}` }
     const result = await getUserTasksApi(searchKey, reqHeader)
     // console.log(result.data)
     setUserTasks(result.data)
+    setIsLoading(false)
   }
 
   useEffect(() => {
@@ -75,7 +79,14 @@ function UserTasks() {
                       </thead>
 
                       <tbody>
-                        {userTasks?.length > 0 ? 
+                        { isLoading?
+                        <tr>
+                            <td colSpan="4" className="empty-state">
+                              <h3>Fetching Tasks...</h3>
+                            </td>
+                        </tr>
+                        :
+                        userTasks?.length > 0 ? 
                         userTasks?.map((task) => (
                         <tr key={task?._id}>
                           <td className="identity">
