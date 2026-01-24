@@ -118,7 +118,7 @@ function Auth({ register }) {
               <h5>PASSWORD</h5>
               <div className="icon-input">
                 <FontAwesomeIcon icon={faLock} />
-                <input type="text" placeholder="•••••••" value={userDetails.password} onChange={(e) => { setUserDetails({ ...userDetails, password: e.target.value }) }} />
+                <input type="password" placeholder="•••••••" value={userDetails.password} onChange={(e) => { setUserDetails({ ...userDetails, password: e.target.value }) }} />
               </div>
               <button className="button-primary" onClick={handleLogin} >VERIFY IDENTITY</button>
             </div>
