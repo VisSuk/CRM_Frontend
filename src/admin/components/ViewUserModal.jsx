@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../../css/commonStyles.css";
-import "../../css/ViewUserModal.css";
+import "../../css/viewUserModal.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
 import { getUserStatsApi } from "../../services/allApi";
