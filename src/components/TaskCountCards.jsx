@@ -1,58 +1,79 @@
-import React from 'react'
-import './TaskCountCards.css'
+import React from "react";
+import '../css/TaskCountCards.css'
+import '../css/commonStyles.css'
+import {
+  faCircle,
+  faCircleCheck,
+  faLayerGroup,
+  faSpinner,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-function TaskCountCards({numbers, isAdmin}) {
-
-    const data = isAdmin
-    ? {
+function TaskCountCards({ numbers }) {
+  const data = {
         all: numbers?.totalTasks,
         completed: numbers?.completedTasks,
         pending: numbers?.pendingTasks,
-        inprogress: numbers?.inProgressTasks
+        inprogress: numbers?.inProgressTasks,
       }
-    : numbers
 
-    console.log(data)
+
+    //   const data = isAdmin
+    // ? {
+    //     all: numbers?.totalTasks,
+    //     completed: numbers?.completedTasks,
+    //     pending: numbers?.pendingTasks,
+    //     inprogress: numbers?.inProgressTasks,
+    //   }
+    // : numbers;
+
+  // console.log(data);
 
   return (
     <>
       <div className="task-count-grid">
-
         <div className="count-card">
-          <p className="count-title">All Tasks</p>
+          <div className="sys-tasks-icon box-icon">
+            <FontAwesomeIcon icon={faLayerGroup} />
+          </div>
           <div className="count-body">
-            <div className="count-circle all"></div>
-            <h2>{data?.all}</h2>
+            <p>SYSTEM TASKS</p>
+            <h3>{data?.all ? data.all : "0"}</h3>
           </div>
         </div>
 
         <div className="count-card">
-          <p className="count-title">Completed</p>
+          <div className="pending-icon box-icon">
+            <FontAwesomeIcon icon={faCircle} />
+          </div>
           <div className="count-body">
-            <div className="count-circle completed"></div>
-            <h2>{data?.completed}</h2>
+            <p>PENDING</p>
+            <h3>{data?.pending ? data.pending : "0"}</h3>
           </div>
         </div>
 
         <div className="count-card">
-          <p className="count-title">Pending</p>
+          <div className="in-progress-icon box-icon">
+            <FontAwesomeIcon icon={faSpinner} />
+          </div>
           <div className="count-body">
-            <div className="count-circle pending"></div>
-            <h2>{data?.pending}</h2>
+            <p>IN PROGRESS</p>
+            <h3>{data?.inprogress ? data.inprogress : "0"}</h3>
           </div>
         </div>
 
         <div className="count-card">
-          <p className="count-title">In Progress</p>
+          <div className="completed-icon box-icon">
+            <FontAwesomeIcon icon={faCircleCheck} />
+          </div>
           <div className="count-body">
-            <div className="count-circle inprogress"></div>
-            <h2>{data?.inprogress}</h2>
+            <p>COMPLETED</p>
+            <h3>{data?.completed ? data.completed : "0"}</h3>
           </div>
         </div>
-
       </div>
     </>
-  )
+  );
 }
 
-export default TaskCountCards
+export default TaskCountCards;

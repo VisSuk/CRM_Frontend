@@ -1,94 +1,62 @@
-import React, { useEffect, useState } from "react"
-import './UserDashboard.css'
-import UserSidebar from "../components/UserSidebar"
-import Header from "../../components/Header"
-import TaskCountCards from "../../components/TaskCountCards"
-import { getUserTasksApi } from "../../services/allApi"
-import { getTaskCounts } from "../../functions/taskCounts"
+import React, { useEffect, useState } from "react";
+import UserSidebar from "../components/UserSidebar";
+import Header from "../../components/Header";
+import TaskCountCards from "../../components/TaskCountCards";
+import WorkloadPerformance from "../../components/WorkloadPerformance";
 
+import "../../css/dashboard.css";
+import "../../css/commonStyles.css";
+import { getUserStatsApi } from "../../services/allApi";
 
 function UserDashboard() {
 
-  const [token, setToken] = useState("")
-  const [myTasks, setMytasks] = useState([])
-  const [taskcounts, setTaskCounts] = useState({})
+  const [token, setToken] = useState()
+  const [id, setId] = useState("")
+  
+  const [taskCounts, setTaskCounts] = useState({})
+  
 
-  console.log(token)
-  console.log(taskcounts)
-
-  const getUserTasks = async () => {
-    console.log("Inside get user tasks function")
-    const reqHeader = {
-      "Authorization": `Bearer ${token}`
-    }
-    const result = await getUserTasksApi("", reqHeader)
-    console.log(result.data)
-    setMytasks(result.data)
-    const counts = getTaskCounts(result.data)
-    setTaskCounts(counts)
+  const getUserStats = async() => {
+    const reqHeader = { "Authorization": `Bearer ${token}` }
+    const result = await getUserStatsApi(id, reqHeader)
+    // console.log(result.data)
+    setTaskCounts(result.data)
   }
 
   useEffect(() => {
-    setToken(sessionStorage.getItem('token'))
-  }, [])
+    setToken(sessionStorage.getItem("token"));
+    const user = JSON.parse(sessionStorage.getItem("existingUser"))
+    setId(user.id)
+  }, []);
 
   useEffect(() => {
     if (token) {
-      getUserTasks()
+      getUserStats()
     }
-  }, [token])
+  }, [token]);
 
   return (
     <>
-      <div className="dashboard-layout">
-
-        {/* Left Grid – Sidebar */}
-        <div className="dashboard-sidebar">
+      <div className="dash-container main-layout">
+        <div className="sidebar">
           <UserSidebar />
         </div>
-
-        {/* Right Grid */}
-        <div className="dashboard-main">
-
-          {/* Top – Header */}
-          <div className="dashboard-header">
+        <div className="dash-main">
+          <div className="dash-header">
             <Header />
           </div>
-
-          {/* Bottom – Dashboard Content */}
-          <div className="dashboard-content">
-            <h2>Dashboard</h2>
-            <TaskCountCards numbers={taskcounts} />
-            <div className="recent-tasks">
-            <h3>Recently Added Tasks</h3>
-
-            {myTasks.length > 0 ? (
-              myTasks.slice(0, 3).map((task) => (
-                <div key={task._id} className="recent-task-item">
-                  <div className="recent-task-title">{task.title}</div>
-                  <div className={`recent-task-status ${task.taskStatus.toLowerCase().replace(" ", "")}`}>
-                    {task.taskStatus}
-                  </div>
-                </div>
-              ))
-            ) : (
-              <p>No tasks yet</p>
-            )}
+          <div className="dash-contents content-layout">
+            <div className="left-spacer-grid"></div>
+            <div className="middle-content-grid">
+              <TaskCountCards  numbers = {taskCounts} />
+              <WorkloadPerformance data={taskCounts} />
+            </div>
+            <div className="right-spacer-grid"></div>
           </div>
-          </div>
-
-          
-
-
-
-
-
-
         </div>
-
       </div>
     </>
-  )
+  );
 }
 
-export default UserDashboard
+export default UserDashboard;

@@ -1,0 +1,125 @@
+.table-wrapper {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.shared-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.shared-table thead {
+  background: #ffffff;
+}
+
+.shared-table th {
+  text-align: left;
+  padding: 18px 24px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #9aa4b2;
+  font-weight: 600;
+}
+
+.shared-table td {
+  padding: 18px 24px;
+  border-top: 1px solid #f0f2f6;
+  vertical-align: middle;
+}
+
+.table-container{
+    margin-top: 10px;
+    height: 90%;
+}
+
+/* Identity column */
+.identity {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #5f6cff, #7b5cff);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-weight: 600;
+  text-transform: lowercase;
+}
+
+.username {
+  font-weight: 600;
+  color: #1f2937;
+}
+
+/* Email */
+.email {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* Badges */
+.badge {
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  display: inline-block;
+}
+
+.badge.admin {
+  background: #f3e8ff;
+  color: #7c3aed;
+}
+
+.badge.user {
+  background: #eef2ff;
+  color: #4f46e5;
+}
+
+.badge.pending {
+  color: gold;
+  background-color: rgba(255, 255, 0, 0.116);
+}
+
+.badge.inprogress {
+  color: blue;
+  background-color: rgba(135, 207, 235, 0.301);
+}
+
+.badge.completed {
+  color: green;
+  background-color: rgba(0, 128, 0, 0.123);
+}
+
+/* Actions */
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.icon-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  border: none;
+  background: #f3f4f6;
+  cursor: pointer;
+  font-size: 16px;
+  display: grid;
+  place-items: center;
+}
+
+.icon-btn:hover {
+  background: #e5e7eb;
+}
+
+.icon-btn.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}

@@ -1,0 +1,23 @@
+.tasks-search-add{
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tasks-search{
+    width: 40%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+/* .table-wrapper{
+    border: 1px solid black;
+} */
+
+
+/*to keep the row uniform without the avatar*/
+.identity{
+    height: 40px;
+}

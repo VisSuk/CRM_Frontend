@@ -1,0 +1,81 @@
+.view-user-header {
+    background-color: var(--bg-light-grey);
+    padding: 0.5rem;
+    border-radius: var(--radius-md);
+
+}
+
+.description {
+    /* border: 1px solid black; */
+
+    textarea {
+        width: 100%;
+        margin-top: 1rem;
+        padding: 1rem 0rem;
+        background-color: var(--bg-light-grey);
+        border: none;
+        border-radius: var(--radius-md);
+    }
+}
+
+.dates-section {
+    /* border: 1px solid black; */
+    margin-top: 1rem;
+
+
+    .dates-flex {
+        width: 100%;
+        background-color: var(--bg-light-grey);
+        border-radius: var(--radius-md);
+        padding: 0.25rem 0rem;
+        display: flex;
+        justify-content: space-evenly;
+
+        .dates-box{
+            text-align: center;
+        }
+
+    }
+}
+
+.task-meta {
+margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.85rem;
+}
+
+.assigned-user {
+  color: var(--text-muted);
+}
+
+.task-actions button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.modal-badge{
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  display: inline-block;
+}
+
+.modal-badge.pending {
+  color: gold;
+  background-color: rgba(255, 255, 0, 0.116);
+}
+
+.modal-badge.inprogress {
+  color: blue;
+  background-color: rgba(135, 207, 235, 0.301);
+}
+
+.modal-badge.completed {
+  color: green;
+  background-color: rgba(0, 128, 0, 0.123);
+}

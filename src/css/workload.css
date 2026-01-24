@@ -1,0 +1,52 @@
+
+/* Set seperation from taskcard + assign height */
+.workload{
+    margin-top: 30px;
+    height: 60%;
+}
+
+.work-legend{
+
+    width: 30%;
+    display: flex;
+    justify-content: space-evenly;
+
+    small{
+        font-size: 10px;
+        font-weight: 600;
+        color: var(--text-muted);
+    }
+
+    span{
+        font-size: 12px;
+    }
+
+    .pending{
+        span{
+            color: yellow;
+        }
+    }
+
+    .in-progress{
+        span{
+            color: rgb(0, 0, 255);
+        }
+    }
+
+    .completed{
+        span{
+            color: green;
+        }
+    }
+
+}
+
+/* Graph-Container */
+.graph-container{
+    height: 90%;
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

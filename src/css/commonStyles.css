@@ -1,0 +1,197 @@
+:root {
+  /* Brand Colors */
+  --primary-purple-light: rgb(72, 64, 212);
+  --primary-purple: rgb(78, 69, 228); /* Used for buttons and active states */
+  --primary-purple-glow: rgba(91, 77, 243, 0.2);
+
+  /* Backgrounds & Surfaces */
+  --bg-light-grey: rgb(243, 246, 249); /* Main app background */
+  --surface-white: #ffffff; /* Card and modal backgrounds */
+
+  /* Typography */
+  --text-main: #1a1d23; /* Titles and primary text */
+  --text-muted: #94a3b8; /* Labels and timestamps */
+  --text-dark: #7b8799;
+  --text-red: #ef4444; /* Sign out and delete actions */
+
+  /* Accents (Status) */
+  --status-pending: #f59e0b; /* Yellow */
+  --status-active: #3b82f6; /* Blue */
+  --status-done: #10b981; /* Green */
+
+  /* Borders & Radius */
+  --radius-xl: 30px; /* Large containers */
+  --radius-lg: 16px; /* Modals and cards */
+  --radius-md: 12px; /* Buttons and inputs */
+  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.button-primary {
+  background-color: var(--primary-purple);
+  padding: 8px 20px;
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.button-secondary {
+  background-color: var(--bg-light-grey);
+  padding: 8px 20px;
+  color: var(--text-dark);
+  border: 1px solid #94a3b880;
+  border-radius: var(--radius-md);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.box-icon {
+  padding: 0.5rem;
+  border: 1px solid;
+  border-radius: var(--radius-md);
+}
+
+/* 2 grid layout for sidebar and content */
+.main-layout {
+  display: grid;
+  grid-template-columns: 2fr 9fr;
+}
+
+/* 3 grid content layout with 2 small spacers on each side*/
+.content-layout {
+  height: 90vh;
+  display: grid;
+  grid-template-columns: 1fr 8fr 1fr;
+  background-color: var(--bg-light-grey);
+}
+
+/* Small top and bottom padding for the content grid */
+.middle-content-grid {
+  padding: 20px 0px;
+}
+
+/* container for main content */
+.content-container {
+  background-color: white;
+  border-radius: var(--radius-xl);
+  padding: 30px;
+  box-shadow: var(--shadow-soft);
+}
+
+/* Common header style properties */
+.content-header {
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/*Apply grey sub text*/
+.header-text {
+  small {
+    color: var(--text-muted);
+  }
+}
+
+/* Add small gap between icon and button text*/
+.button-icon {
+  margin-right: 5px;
+}
+
+/* common input boxes style */
+.input-box {
+  border: 1px solid rgba(128, 128, 128, 0.2);
+  border-radius: var(--radius-md);
+  background-color: var(--bg-light-grey);
+  padding: 8px;
+}
+
+.text-area {
+  border: 1px solid rgba(128, 128, 128, 0.2);
+  border-radius: var(--radius-md);
+  background-color: var(--bg-light-grey);
+  padding: 8px;
+}
+
+/*---------------- Modal Properties--------------- */
+.modalBackground {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalContainer {
+  width: 500px;
+  /* height: 500px; */
+  border-radius: var(--radius-xl);
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+}
+
+.titleCloseBtn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.titleCloseBtn button {
+  color: var(--text-muted);
+  background-color: transparent;
+  border: none;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.modalContainer .footer {
+  width: 40%;
+  display: flex;
+  align-self: flex-end;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.modalContainer .form-body {
+  /* border: 1px solid black; */
+  flex: 50%;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* font-size: 1.7rem; */
+  /* text-align: center; */
+  color: var(--text-dark);
+  padding: 20px;
+
+  h5 {
+    margin-bottom: 10px;
+  }
+
+  input {
+    margin-bottom: 20px;
+  }
+
+  textarea {
+    margin-bottom: 20px;
+  }
+
+  select {
+    border: 1px solid rgba(128, 128, 128, 0.2);
+    border-radius: var(--radius-md);
+    background-color: var(--bg-light-grey);
+    padding: 8px;
+    margin-bottom: 20px;
+  }
+}

@@ -1,6 +1,20 @@
 import { commonApi } from "./commonApi"
 import { serverUrl } from "./serverUrl"
 
+
+//--------------COMMON--------------------------
+//FETCH USER STATS
+export const getUserStatsApi = async(id, reqHeader) => {
+    console.log(reqHeader)
+    return await commonApi("GET", `${serverUrl}/getUserTaskCounts/${id}`, null, reqHeader)
+}
+
+//FETCH LOGS
+export const getLogsApi = async(reqHeader) => {
+    return await commonApi("GET", `${serverUrl}/task-logs`, {}, reqHeader)
+}
+
+//----------------USER------------------------
 //REGISTER API
 export const handleRegisterApi = async (reqBody) => {
     console.log("Inside register API")
@@ -41,13 +55,18 @@ export const addTaskApi = async (reqBody, reqHeader) => {
 //EDIT TASK API
 export const editTaskApi = async(id, reqBody, reqHeader) => {
     console.log(reqHeader)
-    return await commonApi('PUT', `${serverUrl}/editTask/${id}`, reqBody, reqHeader)
+    return await commonApi('PUT', `${serverUrl}/updateTask/${id}`, reqBody, reqHeader)
 }
 
 //Fetch USER LOGS
 export const getUserLogsApi = async(reqHeader) => {
     return await commonApi('GET', `${serverUrl}/getLogs`, {}, reqHeader)
 }
+
+
+// export const getUserStatsApi = async(id, reqHeader){
+//     return await commonApi("GET", `${serverUrl}/getUserTaskCounts/${id}`, {}, reqHeader)
+// }
 
 
 //----------------ADMIN SIDE----------------------------
@@ -59,6 +78,16 @@ export const getAdminStatsApi = async(reqHeader) => {
 //get all users
 export const getAllUsersApi = async(reqHeader) => {
     return await commonApi('GET', `${serverUrl}/getAllUsers`, {}, reqHeader)
+}
+
+//create new user
+export const createUserApi = async(reqBody, reqHeader) => {
+    return await commonApi('POST', `${serverUrl}/addUser`, reqBody, reqHeader)
+}
+
+//edit user
+export const editUserApi = async (id, reqBody, reqHeader) => {
+    return await commonApi('PUT', `${serverUrl}/updateUser/${id}`, reqBody, reqHeader)
 }
 
 //get all tasks

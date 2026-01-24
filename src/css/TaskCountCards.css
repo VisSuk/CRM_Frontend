@@ -1,0 +1,72 @@
+.task-count-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.count-card {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.count-title {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 10px;
+}
+
+.count-body {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin-top: 5px;
+}
+
+.count-body h3 {
+  margin-top: 3px;
+}
+
+/* Circle */
+.count-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+
+.count-card {
+  p {
+    font-size: 11px;
+    font-weight: 800;
+    color: rgb(159, 167, 191);
+  }
+
+  .box-icon {
+    width: 11%;
+  }
+}
+.sys-tasks-icon {
+  color: rgb(78, 69, 228);
+  border: 1px solid rgba(77, 69, 228, 0.342);
+  background-color: rgba(77, 69, 228, 0.123);
+}
+
+.pending-icon {
+  color: rgb(248, 244, 2);
+  background-color: rgba(255, 255, 0, 0.075);
+  border: 1px solid rgba(255, 255, 0, 0.7);
+}
+
+.in-progress-icon{
+  color: blue;
+  background-color: rgba(135, 207, 235, 0.301);
+  border: 1px solid rgba(135, 207, 235, 0.37);
+}
+
+.completed-icon{
+  color: green;
+  background-color: rgba(0, 128, 0, 0.123);
+  border: 1px solid rgba(0, 128, 0, 0.103);
+}

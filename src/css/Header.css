@@ -1,8 +1,9 @@
 .header {
   display: flex;
-  justify-content: space-between;
+  justify-content: end;
   align-items: center;
   padding: 14px 24px;
+  background-color: white;
 }
 
 .header-search {

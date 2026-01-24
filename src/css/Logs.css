@@ -1,0 +1,47 @@
+small{
+    color: var(--text-dark);
+}
+
+hr{
+    margin: 20px 0px;
+    border: 1px solid rgba(128, 128, 128, 0.15);
+}
+
+/* .logs-container{
+    border: 1px solid black;
+} */
+
+.log-tab{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+}
+
+.left-side{
+    /* border: 1px solid blue; */
+    width: 70%;
+    display: flex;
+    align-items: center;
+
+    .log-message{
+        margin-left: 0.5rem;
+    }
+}
+
+.log-icon{
+    border: 1px solid rgba(128, 128, 128, 0.25);
+    box-shadow: var(--shadow-soft);
+}
+
+.CREATED{
+    color: green;
+}
+
+.UPDATED{
+    color: gold
+}
+
+.DELETED{
+    color: red;
+}
