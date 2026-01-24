@@ -13,12 +13,17 @@ function UserSidebar() {
     email: ""
   })
 
+  const handleLogout = () => {
+    sessionStorage.clear()
+    navigate("/", { replace: true })
+  }
+
   // console.log(userDetails)
 
-    useEffect(() => {
-      const user = JSON.parse(sessionStorage.getItem("existingUser"))
-      setUserDetails({ username: user.username, email: user.email})
-    }, []);
+  useEffect(() => {
+    const user = JSON.parse(sessionStorage.getItem("existingUser"))
+    setUserDetails({ username: user.username, email: user.email })
+  }, []);
 
   return (
     <div className="sidebar">
@@ -65,7 +70,7 @@ function UserSidebar() {
           </div>
 
           {/* Logout */}
-          <div className="logout-section">
+          <div className="logout-section" onClick={handleLogout}>
             <FontAwesomeIcon icon={faRightFromBracket} />
             <p>Logout</p>
           </div>
