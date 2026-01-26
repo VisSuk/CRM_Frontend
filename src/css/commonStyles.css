@@ -1,28 +1,40 @@
 :root {
   /* Brand Colors */
   --primary-purple-light: rgb(72, 64, 212);
-  --primary-purple: rgb(78, 69, 228); /* Used for buttons and active states */
+  --primary-purple: rgb(78, 69, 228);
+  /* Used for buttons and active states */
   --primary-purple-glow: rgba(91, 77, 243, 0.2);
 
   /* Backgrounds & Surfaces */
-  --bg-light-grey: rgb(243, 246, 249); /* Main app background */
-  --surface-white: #ffffff; /* Card and modal backgrounds */
+  --bg-light-grey: rgb(243, 246, 249);
+  /* Main app background */
+  --surface-white: #ffffff;
+  /* Card and modal backgrounds */
 
   /* Typography */
-  --text-main: #1a1d23; /* Titles and primary text */
-  --text-muted: #94a3b8; /* Labels and timestamps */
+  --text-main: #1a1d23;
+  /* Titles and primary text */
+  --text-muted: #94a3b8;
+  /* Labels and timestamps */
   --text-dark: #7b8799;
-  --text-red: #ef4444; /* Sign out and delete actions */
+  --text-red: #ef4444;
+  /* Sign out and delete actions */
 
   /* Accents (Status) */
-  --status-pending: #f59e0b; /* Yellow */
-  --status-active: #3b82f6; /* Blue */
-  --status-done: #10b981; /* Green */
+  --status-pending: #f59e0b;
+  /* Yellow */
+  --status-active: #3b82f6;
+  /* Blue */
+  --status-done: #10b981;
+  /* Green */
 
   /* Borders & Radius */
-  --radius-xl: 30px; /* Large containers */
-  --radius-lg: 16px; /* Modals and cards */
-  --radius-md: 12px; /* Buttons and inputs */
+  --radius-xl: 30px;
+  /* Large containers */
+  --radius-lg: 16px;
+  /* Modals and cards */
+  --radius-md: 12px;
+  /* Buttons and inputs */
   --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
@@ -49,7 +61,10 @@
 }
 
 .box-icon {
-  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.75rem;
   border: 1px solid;
   border-radius: var(--radius-md);
 }
@@ -194,4 +209,36 @@
     padding: 8px;
     margin-bottom: 20px;
   }
+}
+
+@media (max-width: 600px) {
+  .main-layout {
+    display: block;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .content-layout {
+    display: block;
+  }
+
+  .box-icon {
+    padding: 0.75rem;
+    border: 1px solid;
+    border-radius: var(--radius-md);
+  }
+
+  /* Modal Properties */
+  .modalContainer{
+    width: 80%;
+  }
+
+  .modalContainer .footer{
+    width: 100%;
+    flex-direction: column;
+    
+  }
+
 }

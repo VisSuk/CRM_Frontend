@@ -48,7 +48,7 @@ function AdminUsers() {
           <AdminSidebar />
         </div>
         <div className="users-main">
-          <div className="users-header">
+          <div className="users-header-section">
             <Header />
           </div>
           <div className="users-contents content-layout">
@@ -100,15 +100,15 @@ function AdminUsers() {
                         allUsers?.length > 0
                           ? allUsers.map((user) => (
                               <tr key={user?._id}>
-                                <td className="identity">
+                                <td className="identity" data-cell="username">
                                   <div className="avatar">{user?.username[0]}</div>
                                   <span className="username">{user?.username}</span>
                                 </td>
-                                <td className="email">{user?.email}</td>
-                                <td>
+                                <td className="email" data-cell="email">{user?.email}</td>
+                                <td data-cell="role">
                                   <span className="badge user">{user?.isAdmin? "ADMIN" : "USER"}</span>
                                 </td>
-                                <td className="actions">
+                                <td className="actions" data-cell="actions">
                                   <button
                                     className="icon-btn"
                                     onClick={() => {

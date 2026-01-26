@@ -37,7 +37,7 @@ function TaskCountCards({ numbers }) {
             <FontAwesomeIcon icon={faLayerGroup} />
           </div>
           <div className="count-body">
-            <p>SYSTEM TASKS</p>
+            <p>ALL TASKS</p>
             <h3>{data?.all ? data.all : "0"}</h3>
           </div>
         </div>

@@ -28,9 +28,9 @@
   vertical-align: middle;
 }
 
-.table-container{
-    margin-top: 10px;
-    height: 90%;
+.table-container {
+  margin-top: 10px;
+  height: 90%;
 }
 
 /* Identity column */
@@ -113,6 +113,7 @@
   font-size: 16px;
   display: grid;
   place-items: center;
+  box-shadow: var(--shadow-soft);
 }
 
 .icon-btn:hover {
@@ -122,4 +123,44 @@
 .icon-btn.disabled {
   opacity: 0.4;
   cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+
+  tr:nth-of-type(2n) {
+    background-color: rgba(128, 128, 128, 0.15);
+  }
+
+  th {
+    display: none
+  }
+
+  td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+  }
+
+  .actions{
+    display: flex;
+    justify-content: space-around;
+  }
+
+  td:first-child {
+    padding-top: 2rem;
+  }
+  td:last-child {
+    padding-bottom: 2rem;
+  }
+
+  td::before {
+    content: attr(data-cell) ": ";
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: #9aa4b2;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
 }

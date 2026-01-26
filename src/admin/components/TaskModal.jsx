@@ -165,9 +165,9 @@ function TaskModal({ setModalTask, sendToken, editingTask, setRefreshTasks }) {
               Cancel
             </button>
             {editingTask ?
-              <button className="button-primary" onClick={handleEditTask}>Edit</button>
+              <button className="button-primary edit" onClick={handleEditTask}>Edit</button>
               :
-              <button className="button-primary" onClick={handleAddTask}>Create</button>
+              <button className="button-primary create" onClick={handleAddTask}>Create</button>
             }
           </div>
         </div>

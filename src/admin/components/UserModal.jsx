@@ -193,11 +193,11 @@ function UserModal({
               Cancel
             </button>
             {editingUser ? (
-              <button className="button-primary" onClick={handleEditUser}>
+              <button className="button-primary edit" onClick={handleEditUser}>
                 Edit
               </button>
             ) : (
-              <button className="button-primary" onClick={handleCreateUser}>
+              <button className="button-primary create" onClick={handleCreateUser}>
                 Create
               </button>
             )}

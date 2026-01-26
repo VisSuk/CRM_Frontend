@@ -25,3 +25,16 @@
 #cancelBtn {
   background-color: crimson;
 }
+
+@media (max-width: 600px) {
+  .footer{
+    button{
+      width: 100%;
+      padding: 15px 0px;
+    }
+  }
+
+  .create, .edit {
+    margin-top: 1rem;
+  }
+}

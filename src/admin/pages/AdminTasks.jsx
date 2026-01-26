@@ -96,14 +96,14 @@ function AdminTasks() {
                         :
                         allTasks?.length > 0 ?
                           allTasks.map((task) => (<tr key={task._id}>
-                          <td className="identity">
+                          <td data-cell='TITLE' className="identity">
                             <span className="username">{task?.title}</span>
                           </td>
-                          <td className="email">{task?.assignedTo?.username}</td>
-                          <td>
+                          <td data-cell='ASSIGNED TO' className="email">{task?.assignedTo?.username}</td>
+                          <td data-cell='STATUS'>
                             <span className={`badge ${task?.taskStatus.toLowerCase().replace(" ", "")}`}>{task?.taskStatus}</span>
                           </td>
-                          <td className="actions">
+                          <td data-cell='ACTIONS' className="actions">
                             <button className="icon-btn" onClick={() => { setViewModal(task) }}>🔍</button>
                             <button className="icon-btn"
                               onClick={() => { setEditingTask(task); setTaskModal(true) }}>✏️</button>

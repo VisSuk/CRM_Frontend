@@ -74,3 +74,20 @@
   justify-content: end;
   align-items: center;
 }
+
+@media (max-width: 600px) {
+  .details-grid{
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+  }
+
+  .user-footer{
+    width: 100%;
+    button{
+      width: 100%;
+      padding: 15px 0px;
+    }
+  }
+
+}

@@ -2,3 +2,26 @@
     height: 75%;
 } */
 
+@media (max-width: 600px){
+    .users-header{
+        /* border: 1px solid black; */
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+
+        button{
+            width: 100%;
+            padding: 15px;
+            /* border: 1px solid black; */
+            margin-top: 1rem;
+        }
+
+    }
+
+    .add-user{
+    /* border: 1px solid blue; */
+    width: 100%;
+}
+
+}
+
