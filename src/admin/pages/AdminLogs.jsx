@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "../../css/commonStyles.css";
 import "../../css/Logs.css";
+import "../../css/navbar.css"
 import AdminSidebar from "../components/AdminSidebar";
 import Header from "../../components/Header";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPen, faPlus, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { getLogsApi } from "../../services/allApi";
+import AdminNavbar from "../components/AdminNavbar";
 
 function AdminLogs() {
 
@@ -20,7 +22,7 @@ function AdminLogs() {
     if (action == 'DELETED') return faTrash
   }
 
-  const getLogs = async() => {
+  const getLogs = async () => {
     setIsLoading(true)
     const reqHeader = { "Authorization": `Bearer ${token}` }
     const result = await getLogsApi(reqHeader)
@@ -33,11 +35,11 @@ function AdminLogs() {
     setToken(sessionStorage.getItem('token'))
   }, [])
 
-  useEffect(()=>{
-    if(token){
+  useEffect(() => {
+    if (token) {
       getLogs()
     }
-  },[token])
+  }, [token])
 
   return (
     <>
@@ -63,33 +65,37 @@ function AdminLogs() {
                 </div>
                 <hr />
                 <div className="logs-tab-container">
-                  { isLoading ? 
-                  <div>
-                    <h3>Fetching Logs...</h3>
-                  </div>
-                  :
-                  logs?.length > 0 ?
-                  logs.map((log) => (
-                  <div key={log?._id} className="log-tab">
-                    <div className="left-side">
-                      <div className={`log-icon box-icon ${log?.action} `}><FontAwesomeIcon  icon={getIcon(log?.action)} size="sm"/> </div>
-                      <div className="log-message">
-                        <h4>{log?.message}</h4>
-                      </div>
+                  {isLoading ?
+                    <div>
+                      <h3>Fetching Logs...</h3>
                     </div>
-                    <div className="right-side"><small>{new Date(log?.createdAt).toLocaleString("en-GB")}</small></div>
-                  </div>))  
-                  :
-                  <div>
-                    <h3>No Logs recorded yet</h3>
-                  </div>
-                }
+                    :
+                    logs?.length > 0 ?
+                      logs.map((log) => (
+                        <div key={log?._id} className="log-tab">
+                          <div className="left-side">
+                            <div className={`log-icon box-icon ${log?.action} `}><FontAwesomeIcon icon={getIcon(log?.action)} size="sm" /> </div>
+                            <div className="log-message">
+                              <h4>{log?.message}</h4>
+                            </div>
+                          </div>
+                          <div className="right-side"><small>{new Date(log?.createdAt).toLocaleString("en-GB")}</small></div>
+                        </div>))
+                      :
+                      <div>
+                        <h3>No Logs recorded yet</h3>
+                      </div>
+                  }
                 </div>
               </div>
             </div>
             <div className="right-spacer-grid"></div>
           </div>
         </div>
+      </div>
+
+      <div className="mobile-nav">
+        <AdminNavbar />
       </div>
     </>
   );

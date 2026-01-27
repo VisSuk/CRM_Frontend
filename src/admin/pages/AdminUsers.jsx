@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../../css/commonStyles.css";
 import "../../css/users.css";
 import "../../css/table.css";
+import "../../css/navbar.css"
 import AdminSidebar from "../components/AdminSidebar";
 import Header from "../../components/Header";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -9,6 +10,7 @@ import { faUserPlus } from "@fortawesome/free-solid-svg-icons";
 import UserModal from "../components/UserModal";
 import ViewUserModal from "../components/ViewUserModal";
 import { getAllUsersApi } from "../../services/allApi";
+import AdminNavbar from "../components/AdminNavbar";
 
 function AdminUsers() {
   const [token, setToken] = useState("");
@@ -90,15 +92,15 @@ function AdminUsers() {
                       </thead>
 
                       <tbody>
-                        { isLoading? 
-                        <tr>
+                        {isLoading ?
+                          <tr>
                             <td colSpan="4" className="fetch-state">
                               <h3>Fetching Users...</h3>
                             </td>
                           </tr>
-                        :
-                        allUsers?.length > 0
-                          ? allUsers.map((user) => (
+                          :
+                          allUsers?.length > 0
+                            ? allUsers.map((user) => (
                               <tr key={user?._id}>
                                 <td className="identity" data-cell="username">
                                   <div className="avatar">{user?.username[0]}</div>
@@ -106,7 +108,7 @@ function AdminUsers() {
                                 </td>
                                 <td className="email" data-cell="email">{user?.email}</td>
                                 <td data-cell="role">
-                                  <span className="badge user">{user?.isAdmin? "ADMIN" : "USER"}</span>
+                                  <span className="badge user">{user?.isAdmin ? "ADMIN" : "USER"}</span>
                                 </td>
                                 <td className="actions" data-cell="actions">
                                   <button
@@ -118,17 +120,17 @@ function AdminUsers() {
                                     👤
                                   </button>
                                   <button className="icon-btn"
-                                  onClick={()=>{setEditingUser(user);setModalOpen(true)}}
+                                    onClick={() => { setEditingUser(user); setModalOpen(true) }}
                                   >✏️</button>
                                 </td>
                               </tr>
                             ))
-                          : 
-                          <tr>
-                            <td colSpan="4" className="empty-state">
-                              <h3>No Users Added</h3>
-                            </td>
-                          </tr>}
+                            :
+                            <tr>
+                              <td colSpan="4" className="empty-state">
+                                <h3>No Users Added</h3>
+                              </td>
+                            </tr>}
                       </tbody>
                     </table>
                   </div>
@@ -139,9 +141,14 @@ function AdminUsers() {
           </div>
         </div>
       </div>
+
+      <div className="mobile-nav">
+        <AdminNavbar />
+      </div>
+
       {modalOpen && <UserModal setOpenModal={setModalOpen} editingUser={editingUser}
-      clearEditingUser={() => setEditingUser(null)} setRefreshUsers={setRefreshUsers} />}
-      {viewUser && <ViewUserModal setUserView={setViewUser} userDetails={viewUser}/>}
+        clearEditingUser={() => setEditingUser(null)} setRefreshUsers={setRefreshUsers} />}
+      {viewUser && <ViewUserModal setUserView={setViewUser} userDetails={viewUser} />}
     </>
   );
 }

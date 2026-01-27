@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "../../css/dashboard.css";
 import "../../css/commonStyles.css";
+import "../../css/navbar.css"
 import AdminSidebar from "../components/AdminSidebar";
 import Header from "../../components/Header";
 import TaskCountCards from "../../components/TaskCountCards";
 import WorkloadPerformance from "../../components/WorkloadPerformance";
 import { getAdminStatsApi } from "../../services/allApi";
+import AdminNavbar from "../components/AdminNavbar";
 
 function AdminDashboard() {
   const [token, setToken] = useState("");
@@ -48,6 +50,9 @@ function AdminDashboard() {
             <div className="right-spacer-grid"></div>
           </div>
         </div>
+      </div>
+      <div className="mobile-nav">
+        <AdminNavbar />
       </div>
     </>
   );

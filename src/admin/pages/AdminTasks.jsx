@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../../css/commonStyles.css";
 import "../../css/tasks.css";
 import "../../css/table.css";
+import "../../css/navbar.css"
 import AdminSidebar from "../components/AdminSidebar";
 import Header from "../../components/Header";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,6 +11,7 @@ import TaskModal from "../components/TaskModal";
 import { getAllTasksApi } from "../../services/allApi";
 import ViewTaskModal from "../../components/ViewTaskModal";
 import ConfirmModal from "../components/ConfirmModal";
+import AdminNavbar from "../components/AdminNavbar";
 
 function AdminTasks() {
   const [token, setToken] = useState("")
@@ -93,29 +95,29 @@ function AdminTasks() {
                               <h3>Fetching Tasks...</h3>
                             </td>
                           </tr>
-                        :
-                        allTasks?.length > 0 ?
-                          allTasks.map((task) => (<tr key={task._id}>
-                          <td data-cell='TITLE' className="identity">
-                            <span className="username">{task?.title}</span>
-                          </td>
-                          <td data-cell='ASSIGNED TO' className="email">{task?.assignedTo?.username}</td>
-                          <td data-cell='STATUS'>
-                            <span className={`badge ${task?.taskStatus.toLowerCase().replace(" ", "")}`}>{task?.taskStatus}</span>
-                          </td>
-                          <td data-cell='ACTIONS' className="actions">
-                            <button className="icon-btn" onClick={() => { setViewModal(task) }}>🔍</button>
-                            <button className="icon-btn"
-                              onClick={() => { setEditingTask(task); setTaskModal(true) }}>✏️</button>
-                            <button className="icon-btn" onClick={(e) => { setConfirmModal(task) }} >🗑️</button>
-                          </td>
-                        </tr>))
-                        :
-                        <tr>
-                          <td colSpan="4" className="empty-state">
-                           <h3> No Tasks Created Yet</h3>
-                          </td>
-                        </tr>
+                          :
+                          allTasks?.length > 0 ?
+                            allTasks.map((task) => (<tr key={task._id}>
+                              <td data-cell='TITLE' className="identity">
+                                <span className="username">{task?.title}</span>
+                              </td>
+                              <td data-cell='ASSIGNED TO' className="email">{task?.assignedTo?.username}</td>
+                              <td data-cell='STATUS'>
+                                <span className={`badge ${task?.taskStatus.toLowerCase().replace(" ", "")}`}>{task?.taskStatus}</span>
+                              </td>
+                              <td data-cell='ACTIONS' className="actions">
+                                <button className="icon-btn" onClick={() => { setViewModal(task) }}>🔍</button>
+                                <button className="icon-btn"
+                                  onClick={() => { setEditingTask(task); setTaskModal(true) }}>✏️</button>
+                                <button className="icon-btn" onClick={(e) => { setConfirmModal(task) }} >🗑️</button>
+                              </td>
+                            </tr>))
+                            :
+                            <tr>
+                              <td colSpan="4" className="empty-state">
+                                <h3> No Tasks Created Yet</h3>
+                              </td>
+                            </tr>
                         }
                       </tbody>
                     </table>
@@ -128,10 +130,15 @@ function AdminTasks() {
           </div>
         </div>
       </div>
+
+      <div className="mobile-nav">
+        <AdminNavbar />
+      </div>
+
       {taskModal && <TaskModal setModalTask={setTaskModal} sendToken={token}
         editingTask={editingTask} setRefreshTasks={setRefreshTasks} />}
       {viewModal && <ViewTaskModal task={viewModal} setViewModal={setViewModal} />}
-      {confirmModal && <ConfirmModal sendToken={token} task={confirmModal} setConfirmModal={setConfirmModal} setRefreshTasks={setRefreshTasks}/>}
+      {confirmModal && <ConfirmModal sendToken={token} task={confirmModal} setConfirmModal={setConfirmModal} setRefreshTasks={setRefreshTasks} />}
     </>
   );
 }
