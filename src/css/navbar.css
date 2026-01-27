@@ -54,4 +54,12 @@
         }
     }
 
+    .nav_icon{
+        border-radius: 1rem;
+        padding: 0.25rem 1rem;
+    }
+    .nav_link.active .nav_icon{
+        background-color: rgb(78, 69, 228, 0.2);
+    }
+
 }

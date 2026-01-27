@@ -13,25 +13,25 @@ function AdminNavbar() {
                 <ul className='nav_list'>
                     <li className='nav_item'>
                         <NavLink to="/admin-dash" className={({ isActive }) =>`nav_link ${isActive ? 'active' : ''}`}>
-                            <FontAwesomeIcon icon={faChartPie} />
+                            <FontAwesomeIcon icon={faChartPie} className='nav_icon' />
                             <small>Dashboard</small>
                         </NavLink>
                     </li>
                     <li className='nav_item'>
                         <NavLink to="/admin-users" className={({ isActive }) =>`nav_link ${isActive ? 'active' : ''}`}>
-                            <FontAwesomeIcon icon={faUsers} />                            
+                            <FontAwesomeIcon icon={faUsers} className='nav_icon'/>                            
                             <small>Users</small>
                         </NavLink>
                     </li>
                     <li className='nav_item'>
                         <NavLink to="/admin-tasks" className={({ isActive }) =>`nav_link ${isActive ? 'active' : ''}`}>
-                            <FontAwesomeIcon icon={faListCheck} />
+                            <FontAwesomeIcon icon={faListCheck} className='nav_icon'/>
                             <small>Tasks</small>
                         </NavLink>
                     </li>
                     <li className='nav_item'>
                         <NavLink to="/admin-logs" className={({ isActive }) =>`nav_link ${isActive ? 'active' : ''}`}>
-                            <FontAwesomeIcon icon={faBolt} />
+                            <FontAwesomeIcon icon={faBolt} className='nav_icon'/>
                             <small>Logs</small>
                         </NavLink>
                     </li>
