@@ -8,6 +8,7 @@ import { toast, ToastContainer } from "react-toastify";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faEnvelope,
+  faEye,
   faLock,
   faSuitcase,
 } from "@fortawesome/free-solid-svg-icons";
@@ -15,11 +16,17 @@ import {
 function Auth({ register }) {
   const navigate = useNavigate();
 
+  const [toggleView, setToggleView] = useState(false)
+  console.log(toggleView)
   const [userDetails, setUserDetails] = useState({
     username: "",
     email: "",
     password: "",
   });
+
+  const passwordToggle = () => {
+    setToggleView(prev => !prev)
+  }
 
   const handleFormReset = () => {
     setUserDetails({
@@ -118,7 +125,8 @@ function Auth({ register }) {
               <h5>PASSWORD</h5>
               <div className="icon-input">
                 <FontAwesomeIcon icon={faLock} />
-                <input type="password" placeholder="•••••••" value={userDetails.password} onChange={(e) => { setUserDetails({ ...userDetails, password: e.target.value }) }} />
+                <input type={ toggleView? "text":"password"} placeholder="•••••••" value={userDetails.password} onChange={(e) => { setUserDetails({ ...userDetails, password: e.target.value }) }} />
+                <FontAwesomeIcon icon={faEye} onClick={passwordToggle}/>
               </div>
               <button className="button-primary" onClick={handleLogin} >VERIFY IDENTITY</button>
             </div>
