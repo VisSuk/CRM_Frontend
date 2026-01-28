@@ -5,6 +5,7 @@ import Header from '../../components/Header'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPen, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons'
 import { getLogsApi } from '../../services/allApi'
+import UserNavbar from '../components/UserNavbar'
 
 function UserLogs() {
 
@@ -87,6 +88,10 @@ function UserLogs() {
             <div className="right-spacer-grid"></div>
           </div>
         </div>
+      </div>
+
+      <div className="mobile-nav">
+        <UserNavbar />
       </div>
     </>
   )

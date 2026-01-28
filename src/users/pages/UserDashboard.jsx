@@ -7,16 +7,17 @@ import WorkloadPerformance from "../../components/WorkloadPerformance";
 import "../../css/dashboard.css";
 import "../../css/commonStyles.css";
 import { getUserStatsApi } from "../../services/allApi";
+import UserNavbar from "../components/UserNavbar";
 
 function UserDashboard() {
 
   const [token, setToken] = useState()
   const [id, setId] = useState("")
-  
-  const [taskCounts, setTaskCounts] = useState({})
-  
 
-  const getUserStats = async() => {
+  const [taskCounts, setTaskCounts] = useState({})
+
+
+  const getUserStats = async () => {
     const reqHeader = { "Authorization": `Bearer ${token}` }
     const result = await getUserStatsApi(id, reqHeader)
     // console.log(result.data)
@@ -48,12 +49,16 @@ function UserDashboard() {
           <div className="dash-contents content-layout">
             <div className="left-spacer-grid"></div>
             <div className="middle-content-grid">
-              <TaskCountCards  numbers = {taskCounts} />
+              <TaskCountCards numbers={taskCounts} />
               <WorkloadPerformance data={taskCounts} />
             </div>
             <div className="right-spacer-grid"></div>
           </div>
         </div>
+      </div>
+
+      <div className="mobile-nav">
+        <UserNavbar />
       </div>
     </>
   );

@@ -9,6 +9,7 @@ import "../../css/tasks.css";
 import "../../css/table.css";
 import { getUserTasksApi } from '../../services/allApi'
 import ViewTaskModal from '../../components/ViewTaskModal'
+import UserNavbar from '../components/UserNavbar'
 
 function UserTasks() {
 
@@ -79,34 +80,34 @@ function UserTasks() {
                       </thead>
 
                       <tbody>
-                        { isLoading?
-                        <tr>
+                        {isLoading ?
+                          <tr>
                             <td colSpan="4" className="load-state">
                               <h3>Fetching Tasks...</h3>
                             </td>
-                        </tr>
-                        :
-                        userTasks?.length > 0 ? 
-                        userTasks?.map((task) => (
-                        <tr key={task?._id}>
-                          <td className="identity">
-                            <span className="username">{task?.title}</span>
-                          </td>
-                          <td>
-                            <span className={`badge ${task?.taskStatus.toLowerCase().replace(" ", "")}`}>{task?.taskStatus}</span>
-                          </td>
-                          <td>
-                            <button className='icon-btn' onClick={()=>{setViewModal(task)}} >🔍</button>
-                          </td>
-                        </tr>
-                        ))
-                        
-                          :
-                          <tr>
-                            <td colSpan="4" className="empty-state">
-                              <h3>No tasks assigned</h3>
-                            </td>
                           </tr>
+                          :
+                          userTasks?.length > 0 ?
+                            userTasks?.map((task) => (
+                              <tr key={task?._id}>
+                                <td data-cell='TITLE' className="identity">
+                                  <span className="username">{task?.title}</span>
+                                </td>
+                                <td data-cell='STATUS'>
+                                  <span className={`badge ${task?.taskStatus.toLowerCase().replace(" ", "")}`}>{task?.taskStatus}</span>
+                                </td>
+                                <td data-cell='ACTIONS' className='actions'>
+                                  <button className='icon-btn' onClick={() => { setViewModal(task) }} >🔍</button>
+                                </td>
+                              </tr>
+                            ))
+
+                            :
+                            <tr>
+                              <td colSpan="4" className="empty-state">
+                                <h3>No tasks assigned</h3>
+                              </td>
+                            </tr>
                         }
                       </tbody>
                     </table>
@@ -119,7 +120,11 @@ function UserTasks() {
           </div>
         </div>
       </div>
-      { viewModal && <ViewTaskModal  task={viewModal}  setViewModal={setViewModal} />}
+
+      <div className="mobile-nav">
+        <UserNavbar />
+      </div>
+      {viewModal && <ViewTaskModal task={viewModal} setViewModal={setViewModal} />}
     </>
   )
 }

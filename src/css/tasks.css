@@ -1,47 +1,58 @@
-.tasks-search-add{
+.tasks-search-add {
     width: 40%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.tasks-search{
+.tasks-search {
     width: 40%;
     display: flex;
     justify-content: end;
     align-items: center;
 }
 
-/* .table-wrapper{
-    border: 1px solid black;
-} */
 
 
 /*to keep the row uniform without the avatar*/
-.identity{
+.identity {
     height: 40px;
 }
 
 @media (max-width: 600px) {
-    .tasks-header{
+    .tasks-header {
         flex-direction: column;
         align-items: start;
     }
 
-    .tasks-search-add{
+    .tasks-search-add {
         width: 100%;
         margin-top: 0.5rem;
         flex-direction: column;
-        
-        input{
+
+        input {
             width: 95%;
-            padding: 10px ;
+            padding: 10px;
         }
-        button{
+
+        button {
             margin-top: 1rem;
             width: 100%;
             padding: 15px 0px;
         }
+    }
+
+    /* User Tasks Header */
+    .tasks-search {
+        width: 100%;
+        margin-top: 0.5rem;
+        flex-direction: column;
+
+        input {
+            width: 95%;
+            padding: 10px;
+        }
+
     }
 
 }
