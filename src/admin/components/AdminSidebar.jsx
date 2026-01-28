@@ -37,13 +37,13 @@ function AdminSidebar() {
 
               <li>
                 <NavLink to="/admin-users" className="sidebar-link">
-                  <FontAwesomeIcon icon={faListCheck} /> Users
+                  <FontAwesomeIcon icon={faUsers} /> Users
                 </NavLink>
               </li>
 
               <li>
                 <NavLink to="/admin-tasks" className="sidebar-link">
-                  <FontAwesomeIcon icon={faUsers} /> Tasks
+                  <FontAwesomeIcon icon={faListCheck} /> Tasks
                 </NavLink>
               </li>
 

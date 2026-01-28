@@ -1,4 +1,4 @@
-import { faBolt, faChartPie, faRightFromBracket, faUsers } from "@fortawesome/free-solid-svg-icons"
+import { faBolt, faChartPie, faListCheck, faRightFromBracket, faUsers } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import React, { useEffect, useState } from "react"
 import { NavLink, useNavigate } from "react-router-dom"
@@ -47,7 +47,7 @@ function UserSidebar() {
 
             <li>
               <NavLink to="/tasks" className="sidebar-link">
-                <FontAwesomeIcon icon={faUsers} /> Tasks
+                <FontAwesomeIcon icon={faListCheck} /> Tasks
               </NavLink>
             </li>
 

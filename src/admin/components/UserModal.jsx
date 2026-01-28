@@ -68,10 +68,10 @@ function UserModal({
   }
   const handleEditUser = async () => {
     const { id, username, email, password, status } = newUserDetails;
-    if (!password) {
-      toast.warning("Please enter the password!")
-      return
-    }
+    // if (!password) {
+    //   toast.warning("Please enter the password!")
+    //   return
+    // }
     const reqHeader = { Authorization: `Bearer ${token}` };
     // console.log(reqHeader);
     const reqBody = {
@@ -153,7 +153,7 @@ function UserModal({
                 setNewUserDetails({ ...newUserDetails, email: e.target.value });
               }}
             />
-            <h5>PASSWORD</h5>
+            <h5>PASSWORD <small style={{color:"var(--text-muted)"}} >(keep blank or type new)</small> </h5>
             <input
               type="text"
               className="input-box"
